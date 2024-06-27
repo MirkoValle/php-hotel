@@ -32,7 +32,7 @@ $vote = isset($_POST['vote_option']) ? $_POST['vote_option'] : '';
             <div>
                 <label for="vote_option" class="fw-bold ms-1">RATING</label>
                 <select class="form-select" aria-label="Default select example" name="vote_option">
-                    <option selected value="All">Select star rating option</option>
+                    <option selected value="All">Select a star rating option</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
