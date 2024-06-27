@@ -1,5 +1,8 @@
 <?php
 require_once __DIR__. '/hotels.php';
+
+
+$parking = $_POST["parking_option"];
 ?>
 
 <!DOCTYPE html>
@@ -15,8 +18,15 @@ require_once __DIR__. '/hotels.php';
 <body>
     
 
+<form action="./index.php" method="post">
+    <select class="form-select" aria-label="Default select example" name="parking_option">
+        <option selected value="">Select a parking option</option>
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+    </select>
 
-
+    <button type="submit">Submit</button>
+</form>
 
 <table class="table table-secondary table-striped table-hover">
     <thead>
@@ -30,6 +40,7 @@ require_once __DIR__. '/hotels.php';
     </thead>
     <tbody>
         <?php foreach($hotels as $hotel) { ?>
+            <?php if (($parking === '' || $hotel['parking'] == ($parking === 'true'))) { ?>
             <tr>
                 <td> <?php echo $hotel['name']; ?> </td>
                 <td> <?php echo $hotel['description']; ?> </td>
@@ -37,7 +48,7 @@ require_once __DIR__. '/hotels.php';
                 <td class="text-center"><?php echo $hotel['vote']; ?></td>
                 <td class="text-center"><?php echo $hotel['distance_to_center'] ?> km</td>
             </tr>
-        <?php } ?>
+        <?php }} ?>
     </tbody>
 </table>
 
